@@ -40,15 +40,21 @@
     "commands": [],
     "configuration": {
       "type": "object",
-      "title": "vscode-vim-config",
-      "properties": {}
+      "title": "Vim Config",
+      "properties": {
+        "vimConfig.updatedAt": {
+          "type": "string",
+          "description": "vim config updated time"
+        }
+      }
     }
   },
   "scripts": {
     "build": "tsdown src/index.ts --external vscode",
     "dev": "nr build --watch --sourcemap",
     "prepare": "nr update",
-    "update": "vscode-ext-gen --output src/generated/meta.ts",
+    "update": "vscode-ext-gen --output src/generated/meta.ts --scope vimConfig",
+    "update:config": "node update.mjs",
     "lint": "eslint .",
     "vscode:prepublish": "nr build",
     "publish": "vsce publish --no-dependencies",
@@ -67,6 +73,7 @@
     "bumpp": "^10.0.3",
     "eslint": "^9.20.1",
     "esno": "^4.8.0",
+    "ofetch": "^1.4.1",
     "pnpm": "^10.4.1",
     "reactive-vscode": "^0.2.10",
     "tsdown": "^0.9.6",
