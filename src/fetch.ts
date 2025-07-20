@@ -1,13 +1,20 @@
 import { objectEntries } from '@antfu/utils'
-import { logger } from 'tsdown/index'
 import { ConfigurationTarget, workspace } from 'vscode'
 import { generate } from './generate'
+import { logger } from './log'
 
 export async function fetchLatset(): Promise<string[]> {
-  const url = 'https://raw.githubusercontent.com/kvoon3/vscode-vim-config-updater/refs/heads/main/README.md'
-  const md = await fetch(url).then(r => r.text())
-  const json = (md.match(/```jsonc([\s\S]*?)```/) || [])[1] || ''
-  return JSON.parse(json) as string[]
+  const url = 'https://raw.githubusercontent.com/kvoon3/vscode-vim-config/refs/heads/main/README.md'
+  const md = await fetch(url)
+    .then(r => r.text())
+    .catch((err) => {
+      logger.error('err', err)
+      return ''
+    })
+
+  const content = (md.match(/```jsonc([\s\S]*?)```/) || [])[1] || ''
+  const json: string[] = JSON.parse(content)
+  return json.filter(i => !i.startsWith('//'))
 }
 
 export async function fetchAndUpdate(): Promise<void[]> {

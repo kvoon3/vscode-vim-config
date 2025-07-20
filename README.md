@@ -4,8 +4,8 @@
 <a href="https://kermanx.github.io/reactive-vscode/" target="__blank"><img src="https://img.shields.io/badge/made_with-reactive--vscode-%23007ACC?style=flat&labelColor=%23229863"  alt="Made with reactive-vscode" /></a>
 
 ```jsonc
-// updated at: 2025-07-20T08:32:24.857Z
 [
+  "// updated at: 2025-07-20T08:32:24.857Z",
   "nmap leader.c.c :claude-code.runClaude @Claude_Code>run_claude",
   "nmap leader.c.i :claude-code.insertAtMentioned @Claude_Code>insert_at_mentioned",
   "nmap leader.c.f :claude-code.runQuickFix @Claude_Code>run_quick_fix",
