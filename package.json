@@ -43,7 +43,7 @@
       "title": "Vim Config",
       "properties": {
         "vimConfig.updatedAt": {
-          "type": "string",
+          "type": "number",
           "description": "vim config updated time"
         }
       }

@@ -5,11 +5,21 @@ import { fetchAndUpdate } from './fetch'
 import { logger } from './log'
 
 const { activate, deactivate } = defineExtension(() => {
-  fetchAndUpdate().then(() => {
-    const updateAt = new Date().toISOString()
-    logger.info('updateAt', updateAt)
-    config.$update('updatedAt', updateAt, ConfigurationTarget.Global)
-  })
+  const update = () => {
+    fetchAndUpdate().then(() => {
+      config.$update('updatedAt', Date.now(), ConfigurationTarget.Global)
+    })
+  }
+
+  if (!config.updatedAt)
+    update()
+  else
+    logger.info('has init')
+
+  if (config.updatedAt && Date.now() - config.updatedAt >= 60_000)
+    update()
+  else
+    logger.info('not expired')
 })
 
 export { activate, deactivate }
