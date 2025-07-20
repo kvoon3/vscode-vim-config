@@ -1,16 +1,14 @@
-import type { Keybinding } from '../src/utils'
 import { describe, expect, it } from 'vitest'
-import { toVimKeybinding } from '../src/utils'
+import { generate } from './generate'
 
-describe('should', () => {
-  it('exported', () => {
-    const keybindings: Keybinding[] = [
-      ['nnoremap', ['<leader>', 'c', 'i'], [], ['claude-code.runQuickFix']],
-      ['nmap', ['<c-w>', '<c-l>'], ['<c-w>', 'l'], []],
-      // ['', [], [], []],
+describe('keybinding generate', () => {
+  it('keybinding string to VSCode Vim config', () => {
+    const keybindings: string[] = [
+      'nnoremap <leader>.c.i :claude-code.runQuickFix',
+      'nmap <c-w>.<c-l> <c-w>.l',
     ]
 
-    expect(toVimKeybinding(keybindings)).toMatchInlineSnapshot(`
+    expect(generate(keybindings)).toMatchInlineSnapshot(`
       {
         "vim.normalModeKeyBindings": [
           {
