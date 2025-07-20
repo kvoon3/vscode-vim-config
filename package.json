@@ -20,7 +20,14 @@
   "sponsor": {
     "url": "https://github.com/sponsors/kvoon"
   },
+  "keywords": [
+    "keymaps",
+    "vim",
+    "config",
+    "keybindings"
+  ],
   "categories": [
+    "Keymaps",
     "Other"
   ],
   "main": "./dist/index.js",
@@ -45,8 +52,1180 @@
         "vimConfig.updatedAt": {
           "type": "number",
           "description": "vim config updated time"
+        },
+        "vimConfig.enableAutoUpdater": {
+          "type": "boolean",
+          "default": true
+        },
+        "vimConfig.keybindings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "nmap leader.c.c :claude-code.runClaude @Claude_Code>run_claude",
+            "nmap leader.c.i :claude-code.insertAtMentioned @Claude_Code>insert_at_mentioned",
+            "nmap leader.c.f :claude-code.runQuickFix @Claude_Code>run_quick_fix",
+            "nmap leader.v :quicktype.pasteJSONAsTypes @paste_json_as_types",
+            "nmap <c-s> :workbench.action.files.save",
+            "nmap leader.s :workbench.action.debug.restart @Debug_restart",
+            "nmap leader.r.f :editor.action.refactor",
+            "nmap leader.r.n :editor.action.rename",
+            "nmap <c-t> :autoHide.action.terminal.toggleTerminal",
+            "nmap v.a.f :fastCodeSelector.fn.select @Select_function...",
+            "nmap c.a.f :fastCodeSelector.fn.change",
+            "nmap d.a.f :fastCodeSelector.fn.delete",
+            "nmap v.i.f :fastCodeSelector.fnBody.select",
+            "nmap d.i.f :fastCodeSelector.fnBody.delete",
+            "nmap c.i.f :fastCodeSelector.fnBody.change",
+            "nmap v.e.f :fastCodeSelector.fnReturn.select",
+            "nmap d.e.f :fastCodeSelector.fnReturn.delete",
+            "nmap c.e.f :fastCodeSelector.fnReturn.change",
+            "nmap leader.e.e leader.e.n",
+            "nmap leader.w.w leader.w.n",
+            "nmap leader.a g.g.V.G",
+            "nmap K :lineBreakInsert",
+            "nmap leader.o :workbench.action.openView @Open_view",
+            "nmap <c-q> :workbench.action.quickOpenView",
+            "nmap <c-w>.<c-h> <c-w>.h",
+            "nmap <c-w>.<c-l> <c-w>.l",
+            "nmap <c-w>.<c-j> <c-w>.j",
+            "nnoremap <c-w>.<c-j> <c-w>.k",
+            "nnoremap <c-w>.<c-k> <c-w>.k",
+            "nnoremap g.f :commandTask.editor.action.goToDeclaration",
+            "nnoremap leader.h :continue.focusContinueInput",
+            "nnoremap leader.H :workbench.action.chat.open",
+            "nnoremap leader.i :continue.quickEdit",
+            "nnoremap H H.z.z",
+            "nnoremap L L.z.z",
+            "nnoremap <C-u> z.R.<C-u>.z.z",
+            "nnoremap <C-d> z.R.<C-d>.z.z",
+            "nnoremap <C-f> <C-f>.z.z",
+            "nnoremap <C-b> <C-b>.z.z",
+            "nnoremap <Enter> f.<Enter>",
+            "nnoremap <c-w>.h :autoHide.action.navigateLeft",
+            "nnoremap <c-w>.l :autoHide.action.navigateRight",
+            "nnoremap <c-w>.<c-k> :autoHide.action.navigateUp",
+            "nnoremap <c-w>.j :autoHide.action.navigateDown",
+            "nnoremap leader.p.g :workbench.view.scm @Panel>Git_Panel",
+            "nnoremap leader.p.e :workbench.view.extensions @Panel>Extension_Panel",
+            "nnoremap leader.l :editor.action.openLink @Open_Link",
+            "nnoremap leader.g.c :git.openChange @Git>Git_Changes",
+            "nnoremap leader.g.r :git.revertSelectedRanges @Git>Git_Revert",
+            "nnoremap leader.g.s :git.stage @Git>Git_stage",
+            "nnoremap leader.g.S :git.unstage @Git>Git_stage",
+            "nnoremap g.h :editor.action.showDefinitionPreviewHover",
+            "nnoremap leader.t.n :todo-tree.goToNext @Todo>Next_Todo",
+            "nnoremap leader.t.N :todo-tree.goToPrevious @Todo>Previous_Todo",
+            "nnoremap leader.t.p :todo-tree.goToPrevious @Todo>Previous_Todo",
+            "nnoremap leader.f.f :workbench.action.quickTextSearch @Find>Find_Text",
+            "nnoremap leader.f.s :workbench.action.gotoSymbol @Find>Find_Symbol",
+            "nnoremap leader.p :workbench.action.quickSwitchWindow @Find>Find_Project",
+            "nnoremap leader.leader :whichKeyConfigGen.show",
+            "nnoremap leader.c.p :workbench.action.editor.previousChange @Changes>Previous_Change",
+            "nnoremap leader.c.N :workbench.action.editor.previousChange @Changes>Previous_Change",
+            "nnoremap leader.c.n :workbench.action.editor.nextChange @Changes>Next_change",
+            "nnoremap leader.e.n :go-to-next-error.next.error @Errors>Next_error",
+            "nnoremap leader.e.N :go-to-next-error.prev.error @Errors>Previous_Error",
+            "nnoremap leader.e.p :go-to-next-error.prev.error @Errors>Provious_Error",
+            "nnoremap leader.w.n :go-to-next-error.next.warning @Warnings>Next_warning",
+            "nnoremap leader.w.N :go-to-next-error.prev.warning @Warnings>Previous_warning",
+            "nnoremap leader.w.p :go-to-next-error.prev.warning @Warnings>Previous_warning",
+            "nnoremap i i :kcs.activateSelections -s",
+            "nnoremap leader.enter :kcs.placeInactiveSelection @Insert_Cursor",
+            "nnoremap g.p.d :editor.action.peekDefinition",
+            "nnoremap g.i :editor.action.goToImplementation",
+            "nnoremap g.p.i :editor.action.peekImplementation",
+            "nnoremap g.r :editor.action.referenceSearch.trigger",
+            "nnoremap g.t :editor.action.goToTypeDefinition",
+            "nnoremap g.p.t :editor.action.peekTypeDefinition",
+            "vmap <c-t> :autoHide.action.terminal.toggleTerminal",
+            "vmap leader.2 :claude-code.insertAtMentioned",
+            "vmap leader.h :continue.focusContinueInput",
+            "vmap leader.i :continue.quickEdit @Continue_Quick_Edit",
+            "vnoremap ] :tailwind-class-genie.switchClassUp",
+            "vnoremap [ :tailwind-class-genie.switchClassDown",
+            "vnoremap v :smartClicks.trigger @Smart_Select",
+            "vnoremap m :editor.action.smartSelect.expand",
+            "vnoremap , :editor.action.smartSelect.shrink",
+            "vnoremap p p.g.v.y",
+            "vnoremap > :editor.action.indentLines",
+            "vnoremap < :editor.action.outdentLines",
+            "vnoremap leader.g.s :git.stageSelectedRanges @Git>Git_stage",
+            "vnoremap leader.g.S :git.unstageSelectedRanges @Git>Git_stage",
+            "vnoremap leader.v :smartClicks.trigger @Smart_Select",
+            "vnoremap g.h :editor.action.showDefinitionPreviewHover",
+            "vnoremap leader.leader :whichKeyConfigGen.show",
+            "vnoremap leader.enter :kcs.placeInactiveSelection @Inactive_Selection",
+            "imap <c-s> :workbench.action.files.save",
+            "imap <c-l> :toggleSuggestionDetails"
+          ]
         }
       }
+    },
+    "configurationDefaults": {
+      "vim.normalModeKeyBindings": [
+        {
+          "before": [
+            "leader",
+            "c",
+            "c"
+          ],
+          "commands": [
+            "claude-code.runClaude"
+          ],
+          "names": [
+            "Claude Code",
+            "run claude"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "c",
+            "i"
+          ],
+          "commands": [
+            "claude-code.insertAtMentioned"
+          ],
+          "names": [
+            "Claude Code",
+            "insert at mentioned"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "c",
+            "f"
+          ],
+          "commands": [
+            "claude-code.runQuickFix"
+          ],
+          "names": [
+            "Claude Code",
+            "run quick fix"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "v"
+          ],
+          "commands": [
+            "quicktype.pasteJSONAsTypes"
+          ],
+          "names": [
+            "paste json as types"
+          ]
+        },
+        {
+          "before": [
+            "<c-s>"
+          ],
+          "commands": [
+            "workbench.action.files.save"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "s"
+          ],
+          "commands": [
+            "workbench.action.debug.restart"
+          ],
+          "names": [
+            "Debug restart"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "r",
+            "f"
+          ],
+          "commands": [
+            "editor.action.refactor"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "r",
+            "n"
+          ],
+          "commands": [
+            "editor.action.rename"
+          ]
+        },
+        {
+          "before": [
+            "<c-t>"
+          ],
+          "commands": [
+            "autoHide.action.terminal.toggleTerminal"
+          ]
+        },
+        {
+          "before": [
+            "v",
+            "a",
+            "f"
+          ],
+          "commands": [
+            "fastCodeSelector.fn.select"
+          ],
+          "names": [
+            "Select function..."
+          ]
+        },
+        {
+          "before": [
+            "c",
+            "a",
+            "f"
+          ],
+          "commands": [
+            "fastCodeSelector.fn.change"
+          ]
+        },
+        {
+          "before": [
+            "d",
+            "a",
+            "f"
+          ],
+          "commands": [
+            "fastCodeSelector.fn.delete"
+          ]
+        },
+        {
+          "before": [
+            "v",
+            "i",
+            "f"
+          ],
+          "commands": [
+            "fastCodeSelector.fnBody.select"
+          ]
+        },
+        {
+          "before": [
+            "d",
+            "i",
+            "f"
+          ],
+          "commands": [
+            "fastCodeSelector.fnBody.delete"
+          ]
+        },
+        {
+          "before": [
+            "c",
+            "i",
+            "f"
+          ],
+          "commands": [
+            "fastCodeSelector.fnBody.change"
+          ]
+        },
+        {
+          "before": [
+            "v",
+            "e",
+            "f"
+          ],
+          "commands": [
+            "fastCodeSelector.fnReturn.select"
+          ]
+        },
+        {
+          "before": [
+            "d",
+            "e",
+            "f"
+          ],
+          "commands": [
+            "fastCodeSelector.fnReturn.delete"
+          ]
+        },
+        {
+          "before": [
+            "c",
+            "e",
+            "f"
+          ],
+          "commands": [
+            "fastCodeSelector.fnReturn.change"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "e",
+            "e"
+          ],
+          "after": [
+            "leader",
+            "e",
+            "n"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "w",
+            "w"
+          ],
+          "after": [
+            "leader",
+            "w",
+            "n"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "a"
+          ],
+          "after": [
+            "g",
+            "g",
+            "V",
+            "G"
+          ]
+        },
+        {
+          "before": [
+            "K"
+          ],
+          "commands": [
+            "lineBreakInsert"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "o"
+          ],
+          "commands": [
+            "workbench.action.openView"
+          ],
+          "names": [
+            "Open view"
+          ]
+        },
+        {
+          "before": [
+            "<c-q>"
+          ],
+          "commands": [
+            "workbench.action.quickOpenView"
+          ]
+        },
+        {
+          "before": [
+            "<c-w>",
+            "<c-h>"
+          ],
+          "after": [
+            "<c-w>",
+            "h"
+          ]
+        },
+        {
+          "before": [
+            "<c-w>",
+            "<c-l>"
+          ],
+          "after": [
+            "<c-w>",
+            "l"
+          ]
+        },
+        {
+          "before": [
+            "<c-w>",
+            "<c-j>"
+          ],
+          "after": [
+            "<c-w>",
+            "j"
+          ]
+        }
+      ],
+      "vim.normalModeKeyBindingsNonRecursive": [
+        {
+          "before": [
+            "<c-w>",
+            "<c-j>"
+          ],
+          "after": [
+            "<c-w>",
+            "k"
+          ]
+        },
+        {
+          "before": [
+            "<c-w>",
+            "<c-k>"
+          ],
+          "after": [
+            "<c-w>",
+            "k"
+          ]
+        },
+        {
+          "before": [
+            "g",
+            "f"
+          ],
+          "commands": [
+            "commandTask.editor.action.goToDeclaration"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "h"
+          ],
+          "commands": [
+            "continue.focusContinueInput"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "H"
+          ],
+          "commands": [
+            "workbench.action.chat.open"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "i"
+          ],
+          "commands": [
+            "continue.quickEdit"
+          ]
+        },
+        {
+          "before": [
+            "H"
+          ],
+          "after": [
+            "H",
+            "z",
+            "z"
+          ]
+        },
+        {
+          "before": [
+            "L"
+          ],
+          "after": [
+            "L",
+            "z",
+            "z"
+          ]
+        },
+        {
+          "before": [
+            "<C-u>"
+          ],
+          "after": [
+            "z",
+            "R",
+            "<C-u>",
+            "z",
+            "z"
+          ]
+        },
+        {
+          "before": [
+            "<C-d>"
+          ],
+          "after": [
+            "z",
+            "R",
+            "<C-d>",
+            "z",
+            "z"
+          ]
+        },
+        {
+          "before": [
+            "<C-f>"
+          ],
+          "after": [
+            "<C-f>",
+            "z",
+            "z"
+          ]
+        },
+        {
+          "before": [
+            "<C-b>"
+          ],
+          "after": [
+            "<C-b>",
+            "z",
+            "z"
+          ]
+        },
+        {
+          "before": [
+            "<Enter>"
+          ],
+          "after": [
+            "f",
+            "<Enter>"
+          ]
+        },
+        {
+          "before": [
+            "<c-w>",
+            "h"
+          ],
+          "commands": [
+            "autoHide.action.navigateLeft"
+          ]
+        },
+        {
+          "before": [
+            "<c-w>",
+            "l"
+          ],
+          "commands": [
+            "autoHide.action.navigateRight"
+          ]
+        },
+        {
+          "before": [
+            "<c-w>",
+            "<c-k>"
+          ],
+          "commands": [
+            "autoHide.action.navigateUp"
+          ]
+        },
+        {
+          "before": [
+            "<c-w>",
+            "j"
+          ],
+          "commands": [
+            "autoHide.action.navigateDown"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "p",
+            "g"
+          ],
+          "commands": [
+            "workbench.view.scm"
+          ],
+          "names": [
+            "Panel",
+            "Git Panel"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "p",
+            "e"
+          ],
+          "commands": [
+            "workbench.view.extensions"
+          ],
+          "names": [
+            "Panel",
+            "Extension Panel"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "l"
+          ],
+          "commands": [
+            "editor.action.openLink"
+          ],
+          "names": [
+            "Open Link"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "g",
+            "c"
+          ],
+          "commands": [
+            "git.openChange"
+          ],
+          "names": [
+            "Git",
+            "Git Changes"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "g",
+            "r"
+          ],
+          "commands": [
+            "git.revertSelectedRanges"
+          ],
+          "names": [
+            "Git",
+            "Git Revert"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "g",
+            "s"
+          ],
+          "commands": [
+            "git.stage"
+          ],
+          "names": [
+            "Git",
+            "Git stage"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "g",
+            "S"
+          ],
+          "commands": [
+            "git.unstage"
+          ],
+          "names": [
+            "Git",
+            "Git stage"
+          ]
+        },
+        {
+          "before": [
+            "g",
+            "h"
+          ],
+          "commands": [
+            "editor.action.showDefinitionPreviewHover"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "t",
+            "n"
+          ],
+          "commands": [
+            "todo-tree.goToNext"
+          ],
+          "names": [
+            "Todo",
+            "Next Todo"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "t",
+            "N"
+          ],
+          "commands": [
+            "todo-tree.goToPrevious"
+          ],
+          "names": [
+            "Todo",
+            "Previous Todo"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "t",
+            "p"
+          ],
+          "commands": [
+            "todo-tree.goToPrevious"
+          ],
+          "names": [
+            "Todo",
+            "Previous Todo"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "f",
+            "f"
+          ],
+          "commands": [
+            "workbench.action.quickTextSearch"
+          ],
+          "names": [
+            "Find",
+            "Find Text"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "f",
+            "s"
+          ],
+          "commands": [
+            "workbench.action.gotoSymbol"
+          ],
+          "names": [
+            "Find",
+            "Find Symbol"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "p"
+          ],
+          "commands": [
+            "workbench.action.quickSwitchWindow"
+          ],
+          "names": [
+            "Find",
+            "Find Project"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "leader"
+          ],
+          "commands": [
+            "whichKeyConfigGen.show"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "c",
+            "p"
+          ],
+          "commands": [
+            "workbench.action.editor.previousChange"
+          ],
+          "names": [
+            "Changes",
+            "Previous Change"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "c",
+            "N"
+          ],
+          "commands": [
+            "workbench.action.editor.previousChange"
+          ],
+          "names": [
+            "Changes",
+            "Previous Change"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "c",
+            "n"
+          ],
+          "commands": [
+            "workbench.action.editor.nextChange"
+          ],
+          "names": [
+            "Changes",
+            "Next change"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "e",
+            "n"
+          ],
+          "commands": [
+            "go-to-next-error.next.error"
+          ],
+          "names": [
+            "Errors",
+            "Next error"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "e",
+            "N"
+          ],
+          "commands": [
+            "go-to-next-error.prev.error"
+          ],
+          "names": [
+            "Errors",
+            "Previous Error"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "e",
+            "p"
+          ],
+          "commands": [
+            "go-to-next-error.prev.error"
+          ],
+          "names": [
+            "Errors",
+            "Provious Error"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "w",
+            "n"
+          ],
+          "commands": [
+            "go-to-next-error.next.warning"
+          ],
+          "names": [
+            "Warnings",
+            "Next warning"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "w",
+            "N"
+          ],
+          "commands": [
+            "go-to-next-error.prev.warning"
+          ],
+          "names": [
+            "Warnings",
+            "Previous warning"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "w",
+            "p"
+          ],
+          "commands": [
+            "go-to-next-error.prev.warning"
+          ],
+          "names": [
+            "Warnings",
+            "Previous warning"
+          ]
+        },
+        {
+          "before": [
+            "i"
+          ],
+          "after": [
+            "i"
+          ],
+          "commands": [
+            "kcs.activateSelections"
+          ],
+          "silent": true
+        },
+        {
+          "before": [
+            "leader",
+            "enter"
+          ],
+          "commands": [
+            "kcs.placeInactiveSelection"
+          ],
+          "names": [
+            "Insert Cursor"
+          ]
+        },
+        {
+          "before": [
+            "g",
+            "p",
+            "d"
+          ],
+          "commands": [
+            "editor.action.peekDefinition"
+          ]
+        },
+        {
+          "before": [
+            "g",
+            "i"
+          ],
+          "commands": [
+            "editor.action.goToImplementation"
+          ]
+        },
+        {
+          "before": [
+            "g",
+            "p",
+            "i"
+          ],
+          "commands": [
+            "editor.action.peekImplementation"
+          ]
+        },
+        {
+          "before": [
+            "g",
+            "r"
+          ],
+          "commands": [
+            "editor.action.referenceSearch.trigger"
+          ]
+        },
+        {
+          "before": [
+            "g",
+            "t"
+          ],
+          "commands": [
+            "editor.action.goToTypeDefinition"
+          ]
+        },
+        {
+          "before": [
+            "g",
+            "p",
+            "t"
+          ],
+          "commands": [
+            "editor.action.peekTypeDefinition"
+          ]
+        }
+      ],
+      "vim.visualModeKeyBindings": [
+        {
+          "before": [
+            "<c-t>"
+          ],
+          "commands": [
+            "autoHide.action.terminal.toggleTerminal"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "2"
+          ],
+          "commands": [
+            "claude-code.insertAtMentioned"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "h"
+          ],
+          "commands": [
+            "continue.focusContinueInput"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "i"
+          ],
+          "commands": [
+            "continue.quickEdit"
+          ],
+          "names": [
+            "Continue Quick Edit"
+          ]
+        }
+      ],
+      "vim.visualModeKeyBindingsNonRecursive": [
+        {
+          "before": [
+            "]"
+          ],
+          "commands": [
+            "tailwind-class-genie.switchClassUp"
+          ]
+        },
+        {
+          "before": [
+            "["
+          ],
+          "commands": [
+            "tailwind-class-genie.switchClassDown"
+          ]
+        },
+        {
+          "before": [
+            "v"
+          ],
+          "commands": [
+            "smartClicks.trigger"
+          ],
+          "names": [
+            "Smart Select"
+          ]
+        },
+        {
+          "before": [
+            "m"
+          ],
+          "commands": [
+            "editor.action.smartSelect.expand"
+          ]
+        },
+        {
+          "before": [
+            ","
+          ],
+          "commands": [
+            "editor.action.smartSelect.shrink"
+          ]
+        },
+        {
+          "before": [
+            "p"
+          ],
+          "after": [
+            "p",
+            "g",
+            "v",
+            "y"
+          ]
+        },
+        {
+          "before": [
+            ">"
+          ],
+          "commands": [
+            "editor.action.indentLines"
+          ]
+        },
+        {
+          "before": [
+            "<"
+          ],
+          "commands": [
+            "editor.action.outdentLines"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "g",
+            "s"
+          ],
+          "commands": [
+            "git.stageSelectedRanges"
+          ],
+          "names": [
+            "Git",
+            "Git stage"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "g",
+            "S"
+          ],
+          "commands": [
+            "git.unstageSelectedRanges"
+          ],
+          "names": [
+            "Git",
+            "Git stage"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "v"
+          ],
+          "commands": [
+            "smartClicks.trigger"
+          ],
+          "names": [
+            "Smart Select"
+          ]
+        },
+        {
+          "before": [
+            "g",
+            "h"
+          ],
+          "commands": [
+            "editor.action.showDefinitionPreviewHover"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "leader"
+          ],
+          "commands": [
+            "whichKeyConfigGen.show"
+          ]
+        },
+        {
+          "before": [
+            "leader",
+            "enter"
+          ],
+          "commands": [
+            "kcs.placeInactiveSelection"
+          ],
+          "names": [
+            "Inactive Selection"
+          ]
+        }
+      ],
+      "vim.insertModeKeyBindings": [
+        {
+          "before": [
+            "<c-s>"
+          ],
+          "commands": [
+            "workbench.action.files.save"
+          ]
+        },
+        {
+          "before": [
+            "<c-l>"
+          ],
+          "commands": [
+            "toggleSuggestionDetails"
+          ]
+        }
+      ]
     }
   },
   "scripts": {
@@ -55,6 +1234,7 @@
     "prepare": "nr update",
     "update": "vscode-ext-gen --output src/generated/meta.ts --scope vimConfig",
     "update:config": "node update.mjs",
+    "update:pkg": "esno update-pkg.ts",
     "lint": "eslint .",
     "vscode:prepublish": "nr build",
     "publish": "vsce publish --no-dependencies",

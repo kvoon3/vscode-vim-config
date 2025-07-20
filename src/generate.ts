@@ -40,19 +40,3 @@ export function generate(keybindings: (Keybinding | string)[]): VimConfig {
 
   return result
 }
-
-export function isNames(str: string): boolean {
-  return str.startsWith('@')
-}
-
-export function isCommand(str: string): boolean {
-  return str.startsWith(':')
-}
-
-export function isArg(str: string): boolean {
-  return str.startsWith('-')
-}
-
-export function isKey(str: string): boolean {
-  return str.length > 0
-}

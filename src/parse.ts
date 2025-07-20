@@ -1,5 +1,4 @@
 import type { Keybinding } from './types'
-import { isArg, isCommand, isKey, isNames } from './generate'
 
 export function parseStringKeybinding(keybinding: string): Keybinding {
   const parts = keybinding.trim().split(/\s+/)
@@ -52,3 +51,15 @@ export function parseCommandString(cmdStr: string): string {
 export function parseNameString(cmdStr: string): string[] {
   return cmdStr.slice(1)?.replaceAll('_', ' ')?.split('>').filter(Boolean)
 }
+export function isNames(str: string): boolean {
+  return str.startsWith('@')
+}export function isCommand(str: string): boolean {
+  return str.startsWith(':')
+}
+export function isArg(str: string): boolean {
+  return str.startsWith('-')
+}
+export function isKey(str: string): boolean {
+  return str.length > 0
+}
+

@@ -1,3 +1,4 @@
+import type { VimConfig } from './types'
 import { objectEntries } from '@antfu/utils'
 import { ConfigurationTarget, workspace } from 'vscode'
 import { generate } from './generate'
@@ -17,17 +18,20 @@ export async function fetchLatset(): Promise<string[]> {
   return json.filter(i => !i.startsWith('//'))
 }
 
-export async function fetchAndUpdate(): Promise<void[]> {
-  const keybindings = await fetchLatset()
-
-  const vimConfig = workspace.getConfiguration('vim')
-
+export async function updateSettings(config: VimConfig) {
+  const settings = workspace.getConfiguration('vim')
   return Promise.all(
-    objectEntries(generate(keybindings)).map(async ([key, config]) => {
+    objectEntries(config).map(async ([key, config]) => {
       const [_, scopedKey] = key.split('.')
-      return vimConfig
+      return settings
         .update(`${scopedKey}`, config, ConfigurationTarget.Global)
         .then(() => logger.info('update done:', key))
     }),
   )
+}
+
+export async function fetchAndUpdate(): Promise<void[]> {
+  const keybindings = await fetchLatset()
+
+  return updateSettings(generate(keybindings))
 }

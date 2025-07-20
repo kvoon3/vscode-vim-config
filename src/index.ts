@@ -1,11 +1,17 @@
-import { defineExtension } from 'reactive-vscode'
+import { defineExtension, watch } from 'reactive-vscode'
 import { ConfigurationTarget } from 'vscode'
 import { config } from './config'
-import { fetchAndUpdate } from './fetch'
+import { fetchAndUpdate, updateSettings } from './fetch'
+import { generate } from './generate'
 import { logger } from './log'
 
 const { activate, deactivate } = defineExtension(() => {
   const update = () => {
+    if (!config.enableAutoUpdater) {
+      logger.info('disabled')
+      return
+    }
+
     fetchAndUpdate().then(() => {
       config.$update('updatedAt', Date.now(), ConfigurationTarget.Global)
     })
@@ -20,6 +26,11 @@ const { activate, deactivate } = defineExtension(() => {
     update()
   else
     logger.info('not expired')
+
+  watch(() => config.keybindings, (value) => {
+    logger.info('keybindings update triggered')
+    updateSettings(generate(value))
+  })
 })
 
 export { activate, deactivate }
