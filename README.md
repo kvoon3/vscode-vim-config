@@ -105,14 +105,6 @@
 ]
 ```
 
-## Sponsors
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/kvoon/static/sponsors.svg">
-    <img src='https://cdn.jsdelivr.net/gh/kvoon/static/sponsors.png'/>
-  </a>
-</p>
-
 ## License
 
-[MIT](./LICENSE.md) License © 2022 [Kevin Kwong](https://github.com/kvoon)
+[MIT](./LICENSE.md) License © 2025 [Kevin Kwong](https://github.com/kvoon)
