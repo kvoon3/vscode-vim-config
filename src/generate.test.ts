@@ -20,13 +20,10 @@ describe('keybinding generate', () => {
               "<c-w>",
               "<c-l>",
             ],
-            "commands": [],
-            "silent": false,
           },
         ],
         "vim.normalModeKeyBindingsNonRecursive": [
           {
-            "after": [],
             "before": [
               "<leader>",
               "c",
@@ -35,7 +32,6 @@ describe('keybinding generate', () => {
             "commands": [
               "claude-code.runQuickFix",
             ],
-            "silent": false,
           },
         ],
       }

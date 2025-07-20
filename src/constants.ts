@@ -7,4 +7,13 @@ export const modeMap = {
   vnoremap: 'vim.visualModeKeyBindingsNonRecursive',
 } as const
 
+export const reverseModeMap = {
+  'vim.normalModeKeyBindings': 'nmap',
+  'vim.normalModeKeyBindingsNonRecursive': 'nnoremap',
+  'vim.insertModeKeyBindings': 'imap',
+  'vim.insertModeKeyBindingsNonRecursive': 'inoremap',
+  'vim.visualModeKeyBindings': 'vmap',
+  'vim.visualModeKeyBindingsNonRecursive': 'vnoremap',
+} as const
+
 export type ModeMap = typeof modeMap
