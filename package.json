@@ -2,7 +2,7 @@
   "publisher": "kvoon",
   "name": "vscode-vim-config",
   "displayName": "Vim Config",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "packageManager": "pnpm@10.4.1",
   "description": "Vim keybindings updater",
