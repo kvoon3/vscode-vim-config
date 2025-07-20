@@ -16,7 +16,7 @@ export function generate(keybindings: (Keybinding | string)[]): VimConfig {
     if (!target)
       continue
 
-    if (!result[target]) 
+    if (!result[target])
       result[target] = []
 
     const config: VimKeybinding = {
@@ -32,8 +32,8 @@ export function generate(keybindings: (Keybinding | string)[]): VimConfig {
     if (names.length)
       config.names = names
 
-    if(silent)
-        config.silent = silent
+    if (silent)
+      config.silent = silent
 
     result[target].push(config)
   }
