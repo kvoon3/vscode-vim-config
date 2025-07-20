@@ -632,11 +632,6 @@ describe('short', () => {
         {
           before: [
             'leader',
-          ],
-        },
-        {
-          before: [
-            'leader',
             'c',
             'p',
           ],

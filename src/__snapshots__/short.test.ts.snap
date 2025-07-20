@@ -61,7 +61,6 @@ exports[`short > make vim config shorter > short vim config 1`] = `
   "nnoremap leader.f.s :workbench.action.gotoSymbol @Find>Find_Symbol",
   "nnoremap leader.p :workbench.action.quickSwitchWindow @Find>Find_Project",
   "nnoremap leader.leader :whichKeyConfigGen.show",
-  "nnoremap leader",
   "nnoremap leader.c.p :workbench.action.editor.previousChange @Changes>Previous_Change",
   "nnoremap leader.c.N :workbench.action.editor.previousChange @Changes>Previous_Change",
   "nnoremap leader.c.n :workbench.action.editor.nextChange @Changes>Next_change",
